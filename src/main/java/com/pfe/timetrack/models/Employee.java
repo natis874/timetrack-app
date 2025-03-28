@@ -23,6 +23,8 @@ public class Employee {
 
     private String poste;
 
+    private String password;
+
     @ManyToOne
     @JoinColumn(name = "manager_id")
     private Employee mananger;
