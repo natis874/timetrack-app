@@ -1,8 +1,8 @@
-package com.pfe.timetrack.controller;
+package com.pfe.timetrack.controllers;
 
-import com.pfe.timetrack.dto.LoginRequestDto;
+import com.pfe.timetrack.dtos.LoginRequestDto;
 import com.pfe.timetrack.models.Employe;
-import com.pfe.timetrack.repository.IEmployeRepository;
+import com.pfe.timetrack.repositories.IEmployeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

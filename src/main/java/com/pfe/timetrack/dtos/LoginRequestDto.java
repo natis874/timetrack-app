@@ -1,4 +1,4 @@
-package com.pfe.timetrack.dto;
+package com.pfe.timetrack.dtos;
 
 public class LoginRequestDto {
     private String email;

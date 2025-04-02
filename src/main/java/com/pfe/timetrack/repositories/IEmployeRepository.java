@@ -1,4 +1,4 @@
-package com.pfe.timetrack.repository;
+package com.pfe.timetrack.repositories;
 
 import com.pfe.timetrack.models.Employe;
 import org.springframework.data.jpa.repository.JpaRepository;
