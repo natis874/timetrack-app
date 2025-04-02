@@ -25,7 +25,7 @@ public class PointageController {
     // 🔹 Récupérer tous les pointages
     @GetMapping
     public List<PointageDto> getAllPointages() {
-        return mapper.toDtos(pointageRepository.findAll());
+        return mapper.toDtoList(pointageRepository.findAll());
     }
 
     // 🔹 Récupérer un pointage par ID
@@ -39,7 +39,7 @@ public class PointageController {
     // 🔹 Ajouter un nouveau pointage
     @PostMapping
     public PointageDto createPointage(@RequestBody PointageDto pointageDto) {
-        Pointage pointage = mapper.toDao(pointageDto);
+        Pointage pointage = mapper.toEntity(pointageDto);
         Pointage savedPointage = pointageRepository.save(pointage);
         return mapper.toDto(savedPointage);
     }
@@ -74,6 +74,6 @@ public class PointageController {
     @GetMapping("/employe/{employeId}")
     public List<PointageDto> getPointagesByEmploye(@PathVariable Long employeId) {
         List<Pointage> pointages = pointageRepository.findByEmployeId(employeId);
-        return mapper.toDtos(pointages);
+        return mapper.toDtoList(pointages);
     }
 }
