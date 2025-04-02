@@ -1,6 +1,6 @@
 package com.pfe.timetrack.models;
 
-import com.pfe.timetrack.enums.Statut;
+import com.pfe.timetrack.enums.StatutCompte;
 import com.pfe.timetrack.enums.TypeContrat;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -9,8 +9,8 @@ import java.util.Date;
 
 @Entity
 @Data
-@Table(name = "employees")
-public class Employee {
+@Table(name = "employes")
+public class Employe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -27,7 +27,7 @@ public class Employee {
 
     @ManyToOne
     @JoinColumn(name = "manager_id")
-    private Employee mananger;
+    private Employe mananger;
 
     @Temporal(TemporalType.DATE)
     private Date dateEmbauche;
@@ -36,7 +36,7 @@ public class Employee {
     private TypeContrat typeContrat;
 
     @Enumerated(EnumType.STRING)
-    private Statut statut;
+    private StatutCompte statut;
 
     @Temporal(TemporalType.DATE)
     private Date dateFinContrat;

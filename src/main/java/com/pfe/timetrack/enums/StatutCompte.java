@@ -1,5 +1,5 @@
 package com.pfe.timetrack.enums;
 
-public enum Statut {
+public enum StatutCompte {
     ACTIF, INACTIF
 }

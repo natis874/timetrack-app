@@ -1,8 +1,8 @@
 package com.pfe.timetrack.controller;
 
 import com.pfe.timetrack.dto.LoginRequestDto;
-import com.pfe.timetrack.models.Employee;
-import com.pfe.timetrack.repository.IEmployeeRepository;
+import com.pfe.timetrack.models.Employe;
+import com.pfe.timetrack.repository.IEmployeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,18 +19,18 @@ import java.util.Optional;
 public class LoginController {
 
     @Autowired
-    private IEmployeeRepository employeeRepository;
+    private IEmployeRepository employeRepository;
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequestDto loginRequest) {
-        // Find employee by email (used as username)
-        Optional<Employee> employee = employeeRepository.findByEmail(loginRequest.getEmail());
+        // Find employe by email (used as username)
+        Optional<Employe> employe = employeRepository.findByEmail(loginRequest.getEmail());
         // Very simple validation - in a real app, you'd use proper password hashing
-        if (employee.isPresent() && employee.get().getPassword().equals(loginRequest.getPassword())) {
+        if (employe.isPresent() && employe.get().getPassword().equals(loginRequest.getPassword())) {
             // Create a simple response object
             Map<String, Object> response = new HashMap<>();
             response.put("status", "success");
-            response.put("employee", employee);
+            response.put("employe", employe);
             return ResponseEntity.ok(response);
         } else {
             Map<String, String> errorResponse = new HashMap<>();
