@@ -1,9 +1,9 @@
 package com.pfe.timetrack.controllers;
 
 import com.pfe.timetrack.dtos.LoginRequestDto;
+import com.pfe.timetrack.mappers.IEmployeMapper;
 import com.pfe.timetrack.models.Employe;
 import com.pfe.timetrack.repositories.IEmployeRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,8 +18,13 @@ import java.util.Optional;
 @RequestMapping("/api/auth")
 public class LoginController {
 
-    @Autowired
-    private IEmployeRepository employeRepository;
+    private final IEmployeRepository employeRepository;
+    private final IEmployeMapper mapper;
+
+    public LoginController(IEmployeRepository employeRepository, IEmployeMapper mapper) {
+        this.employeRepository = employeRepository;
+        this.mapper = mapper;
+    }
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequestDto loginRequest) {
@@ -30,7 +35,7 @@ public class LoginController {
             // Create a simple response object
             Map<String, Object> response = new HashMap<>();
             response.put("status", "success");
-            response.put("employe", employe);
+            response.put("employe", mapper.toDto(employe.get()));
             return ResponseEntity.ok(response);
         } else {
             Map<String, String> errorResponse = new HashMap<>();
@@ -39,5 +44,4 @@ public class LoginController {
             return ResponseEntity.status(401).body(errorResponse);
         }
     }
-
 }

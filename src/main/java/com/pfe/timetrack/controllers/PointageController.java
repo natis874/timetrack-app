@@ -2,7 +2,9 @@ package com.pfe.timetrack.controllers;
 
 import com.pfe.timetrack.dtos.PointageDto;
 import com.pfe.timetrack.mappers.IPointageMapper;
+import com.pfe.timetrack.models.Employe;
 import com.pfe.timetrack.models.Pointage;
+import com.pfe.timetrack.repositories.IEmployeRepository;
 import com.pfe.timetrack.repositories.IPointageRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,9 +19,12 @@ public class PointageController {
     private final IPointageRepository pointageRepository;
     private final IPointageMapper mapper;
 
-    public PointageController(IPointageRepository pointageRepository, IPointageMapper mapper) {
+    private final IEmployeRepository employeRepository;
+
+    public PointageController(IPointageRepository pointageRepository, IPointageMapper mapper, IEmployeRepository employeRepository) {
         this.pointageRepository = pointageRepository;
         this.mapper = mapper;
+        this.employeRepository = employeRepository;
     }
 
     // 🔹 Récupérer tous les pointages
@@ -40,8 +45,14 @@ public class PointageController {
     @PostMapping
     public PointageDto createPointage(@RequestBody PointageDto pointageDto) {
         Pointage pointage = mapper.toEntity(pointageDto);
-        Pointage savedPointage = pointageRepository.save(pointage);
-        return mapper.toDto(savedPointage);
+        Optional<Employe> employe = employeRepository.findById(pointageDto.getEmployeId());
+        if (employe.isPresent()) {
+            pointage.setEmploye(employe.get());
+            Pointage savedPointage = pointageRepository.save(pointage);
+            return mapper.toDto(savedPointage);
+        } else {
+            throw new RuntimeException("Employe introuvable pour le pointage saisi");
+        }
     }
 
     // 🔹 Modifier un pointage existant

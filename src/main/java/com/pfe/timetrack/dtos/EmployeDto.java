@@ -5,6 +5,7 @@ import com.pfe.timetrack.enums.TypeContrat;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 public class EmployeDto {
@@ -19,4 +20,5 @@ public class EmployeDto {
     private TypeContrat typeContrat;
     private StatutCompte statut;
     private Date dateFinContrat;
+    private List<PointageDto> pointages;
 }

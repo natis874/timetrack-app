@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -27,7 +28,7 @@ public class Employe {
 
     @ManyToOne
     @JoinColumn(name = "manager_id")
-    private Employe mananger;
+    private Employe manager;
 
     @Temporal(TemporalType.DATE)
     private Date dateEmbauche;
@@ -40,4 +41,7 @@ public class Employe {
 
     @Temporal(TemporalType.DATE)
     private Date dateFinContrat;
+
+    @OneToMany(mappedBy = "employe", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Pointage> pointages;
 }
