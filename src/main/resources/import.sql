@@ -5,27 +5,27 @@ INSERT INTO employes (id, nom, prenom, email, poste, password, manager_id, date_
 INSERT INTO employes (id, nom, prenom, email, poste, password, manager_id, date_embauche, type_contrat, statut, date_fin_contrat) VALUES (5, 'Bernard', 'Luc', 'luc.bernard@example.com', 'Développeur', 'devpass', 1, '2023-07-20', 'CDD', 'INACTIF', '2024-07-20');
 
 -- Pointages pour Jean Dupont (Employé ID 1)
-INSERT INTO pointages (date, heure_arrivee, heure_depart, type, employe_id) VALUES ('2024-03-25', '08:30:00', '17:30:00', 'PRESENT', 1);
-INSERT INTO pointages (date, heure_arrivee, heure_depart, type, employe_id) VALUES ('2024-03-26', '08:45:00', '17:15:00', 'PRESENT', 1);
-INSERT INTO pointages (date, heure_arrivee, heure_depart, type, employe_id) VALUES ('2024-03-27', '09:00:00', '16:45:00', 'TELETRAVAIL', 1);
+INSERT INTO pointages (date, heure_arrivee, heure_depart, type, employe_id) VALUES ('2025-04-01', '08:30:00', '17:30:00', 'PRESENT', 1);
+INSERT INTO pointages (date, heure_arrivee, heure_depart, type, employe_id) VALUES ('2025-04-02', '08:45:00', '17:15:00', 'PRESENT', 1);
+-- INSERT INTO pointages (date, heure_arrivee, heure_depart, type, employe_id) VALUES ('2025-04-27', '09:00:00', '16:45:00', 'TELETRAVAIL', 1);
 
 -- Pointages pour Sophie Martin (Employé ID 2)
 
-INSERT INTO pointages (date, heure_arrivee, heure_depart, type, employe_id) VALUES ('2024-03-25', '09:00:00', '18:00:00', 'PRESENT', 2);
-INSERT INTO pointages (date, heure_arrivee, heure_depart, type, employe_id) VALUES ('2024-03-26', '09:15:00', '17:45:00', 'PRESENT', 2);
-INSERT INTO pointages (date, heure_arrivee, heure_depart, type, employe_id) VALUES ('2024-03-27', NULL, NULL, 'CONGE', 2);
+INSERT INTO pointages (date, heure_arrivee, heure_depart, type, employe_id) VALUES ('2025-04-01', '09:00:00', '18:00:00', 'PRESENT', 2);
+INSERT INTO pointages (date, heure_arrivee, heure_depart, type, employe_id) VALUES ('2025-04-02', '09:15:00', '17:45:00', 'PRESENT', 2);
+-- INSERT INTO pointages (date, heure_arrivee, heure_depart, type, employe_id) VALUES ('2025-04-27', NULL, NULL, 'CONGE', 2);
 
 -- Pointages pour Paul Durand (Employé ID 3)
 
-INSERT INTO pointages (date, heure_arrivee, heure_depart, type, employe_id) VALUES ('2024-03-25', '08:00:00', '16:00:00', 'PRESENT', 3);
-INSERT INTO pointages (date, heure_arrivee, heure_depart, type, employe_id) VALUES ('2024-03-26', '08:30:00', '17:00:00', 'PRESENT', 3);
-INSERT INTO pointages (date, heure_arrivee, heure_depart, type, employe_id) VALUES ('2024-03-27', '09:00:00', '16:30:00', 'TELETRAVAIL', 3);
+INSERT INTO pointages (date, heure_arrivee, heure_depart, type, employe_id) VALUES ('2025-04-01', '08:00:00', '16:00:00', 'PRESENT', 3);
+INSERT INTO pointages (date, heure_arrivee, heure_depart, type, employe_id) VALUES ('2025-04-02', '08:30:00', '17:00:00', 'PRESENT', 3);
+-- INSERT INTO pointages (date, heure_arrivee, heure_depart, type, employe_id) VALUES ('2025-04-27', '09:00:00', '16:30:00', 'TELETRAVAIL', 3);
 
 -- Pointages pour Claire Lemoine (Employé ID 4)
 
-INSERT INTO pointages (date, heure_arrivee, heure_depart, type, employe_id) VALUES ('2024-03-25', '09:30:00', '18:30:00', 'PRESENT', 4);
-INSERT INTO pointages (date, heure_arrivee, heure_depart, type, employe_id) VALUES ('2024-03-26', '10:00:00', '17:00:00', 'TELETRAVAIL', 4);
-INSERT INTO pointages (date, heure_arrivee, heure_depart, type, employe_id) VALUES ('2024-03-27', '09:45:00', '17:15:00', 'PRESENT', 4);
+INSERT INTO pointages (date, heure_arrivee, heure_depart, type, employe_id) VALUES ('2025-04-01', '09:30:00', '18:30:00', 'PRESENT', 4);
+INSERT INTO pointages (date, heure_arrivee, heure_depart, type, employe_id) VALUES ('2025-04-02', '10:00:00', '17:00:00', 'TELETRAVAIL', 4);
+-- INSERT INTO pointages (date, heure_arrivee, heure_depart, type, employe_id) VALUES ('2025-04-27', '09:45:00', '17:15:00', 'PRESENT', 4);
 
 -- Pointages pour Luc Bernard (Employé ID 5) (Inactif mais a des anciens pointages)
 
